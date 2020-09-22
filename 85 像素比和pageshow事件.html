@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>像素比和pageshow事件</title>
+</head>
+<body>
+<a href="http://www.itcast.cn">链接</a>
+<script>
+    //物理像素比  获取当前浏览器的像素比
+    console.log(window.devicePixelRatio);
+
+
+    //pageShow事件 ：重新加载页面时触发的事件
+        //load事件： 页面只要一加载就触发load事件 =》a链接、F5刷新、前进后退按钮触发load
+    /*window.addEventListener('load',function () {
+        alert(11); //火狐浏览器存在往返缓存  此时后退回来之后 页面不会alert 所以要使用pageshow事件
+    })*/
+    window.addEventListener('pageshow',function () {
+        alert(11); //火狐浏览器存在往返缓存  此时后退回来之后 页面不会alert 所以要使用pageshow事件
+    })
+
+    //pageshow事件再页面显示前触发，无论页面是否来自缓存，再重新加载页面中，pageshow会在load触发后触发。
+    // pageshow事件的persisted属性为true表示页面来自缓存
+</script>
+
+</body>
+</html>

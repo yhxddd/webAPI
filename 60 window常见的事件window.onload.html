@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window常见事件window.onload</title>
+</head>
+<body>
+
+
+<script>
+    //若将script放到<head>中间 是不会弹框的
+    /*
+    var btn = document.querySelector('button');
+    btn.addEventListener('click',function () {
+        alert('点我！');
+    })
+*/
+
+
+    // window.onload 事件: 当页面中所有内容都加载完毕再执行onload中的事件
+    // 有window.onload 事件 此时 script放哪个位置都可以
+    // window.onload传统注册方式只能写一个 如果有多个 以最后一个为准
+
+
+    /*
+    window.onload = function () {
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function () {
+            alert('点我！');
+        })
+    }*/
+    window.addEventListener('load',function () {
+        var btn = document.querySelector('button');
+        btn.addEventListener('click',function () {
+            alert('点我！');
+        })
+    });
+    
+    window.addEventListener('load',function () {
+        alert('hhhhh');
+    });
+
+
+    //DOM 下有一个 DOMContentLoaded ：仅当DOM加载完成不包括样式表图片等
+    //   如果页面中图片很多 使用onload时 访问需要很长事件 此时可使用DOM
+    document.addEventListener('DOMContentLoaded',function () {
+        alert('11');
+    })
+</script>
+<button>点击</button>
+</body>
+</html>

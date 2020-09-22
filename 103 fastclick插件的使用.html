@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fastclick插件的使用</title>
+    <style>
+        div{
+            width: 150px;
+            height: 150px;
+            background-color: #1ba1e6;
+        }
+    </style>
+    <script src="fastclick.js"></script>
+</head>
+<body>
+<div></div>
+
+<script>
+    if('addEventListener' in document){
+        document.addEventListener('DOMContentLoaded',function () {
+            FastClick.attach(document.body);
+        },false);
+    }
+    var div = document.querySelector('div');
+    div.addEventListener('click',function () {
+        alert(11);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立即执行函数</title>
+</head>
+<body>
+
+
+<script>
+    //一般函数需要调用才能执行：
+    function fn(){
+        console.log(1);
+    }
+    fn();
+
+    //立即执行函数：不需要调用 立马能够自己执行
+    //  两种写法： (function(){})()    /  (function(){}())
+    (function (a,b) {
+        //console.log(2);
+        console.log(a+b);
+    })(1,2); //第二个小括号可以看作是调用函数  也可以传入参数
+
+    (function(a,b){
+         console.log(4);
+         console.log(a+b);
+    }(3,4))
+
+    //立即执行函数最大的作用是 独立创建了一个作用域 里面变量是局部变量 不会冲突
+    
+</script>
+</body>
+</html>

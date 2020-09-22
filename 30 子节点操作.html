@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子节点操作</title>
+</head>
+<body>
+<div>我是div</div>
+<span>我是span</span>
+<ul>
+    <li>我是li</li>
+    <li>我是li</li>
+    <li>我是li</li>
+</ul>
+<div class="demo">
+    <div class="box">
+        <span class="erweima">x</span>
+    </div>
+</div>
+
+<script>
+    //得到ul中所有li
+    var ul = document.querySelector('ul');
+    var lis = ul.querySelectorAll('li');
+    // 子节点childNodes 得到所有子节点包括 元素、文本节点等
+    console.log(ul.childNodes);// 得到7个子节点 ul 中有4个换行 即有4个text
+
+    console.log(ul.childNodes[0].nodeType);//text 的nodeType是3
+    console.log(ul.childNodes[1].nodeType);//li 的nodeType是1
+
+    //要只得到元素节点 则需要循环 进行判断nodeType（麻烦）
+    //简洁： 使用children 得到的所有 子节点（伪数组） 是 元素节点
+    console.log(ul.children);
+</script>
+</body>
+</html>

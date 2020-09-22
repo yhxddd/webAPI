@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS队列</title>
+</head>
+<body>
+
+<script>
+    //JS原来是单线程语言  同一时间只能做一件事情
+    // 之后规定JS可创建多个线程  包含同步和异步
+
+    /*
+    console.log(1);
+    setTimeout(function () {
+        console.log(3);
+    },1000);
+    console.log(2);
+    结果:  1 2 3
+*/
+
+    console.log(1);
+    setTimeout(function () {
+        console.log(3);
+    },0);
+    console.log(2);
+    //结果仍为1 2 3
+
+    //同步任务： 都在主线程上执行 形成一个执行栈
+        //  有: console.log(1)   setTimeout(fn,0)  console.log(2)
+
+
+    //异步任务：  回调函数 实现 ，放在消息（任务）队列中
+        //  三类: 1. 普通事件：click,resize等
+        //        2. 资源加载：load,error
+        //        3. 定时器
+
+
+    //JS执行机制 （事件循环）：  先执行 执行栈中的同步任务，将异步任务放入任务队列，所有同步任务执行完毕后，到任务队列中找异步任务再将其放入执行栈中执行，执行完之后再去任务队列中找事件，再放入执行栈执行....
+
+
+</script>
+</body>
+</html>

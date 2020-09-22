@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿淘宝固定侧边栏</title>
+    <style>
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 500px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+
+        .w {
+            width: 1000px;
+            margin: 10px auto;
+        }
+
+        .header {
+            height: 150px;
+            background-color: purple;
+        }
+
+        .banner {
+            height: 250px;
+            background-color: skyblue;
+        }
+
+        .main {
+            height: 1000px;
+            background-color: yellowgreen;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="slider-bar">
+    <span class="goBack">返回顶部</span>
+</div>
+<div class="header w">头部区域</div>
+<div class="banner w">banner</div>
+<div class="main w">主体</div>
+
+<script>
+
+    //刚开始不显示   返回顶部 字样  等滚动条滚动到banner区域 显示
+    //使用 被卷去的头部 的长度进行判断
+    // 如果是元素被卷去的头部 使用element.scrollTop
+    // 整个页面被卷去的头部： window.pageYOffset获得 被卷去的左侧:pageXOffset
+
+    var sliderbar = document.querySelector('.slider-bar');
+    var banner = document.querySelector('.banner');
+    console.log(banner.offsetTop);
+    //banner.offsetTop就是被卷去头部的大小，一定要写到滚动的外边
+    var bannerTop = banner.offsetTop;
+
+    //sliderbar.offsetTop 侧边栏距离页面顶端的距离
+    //侧边栏固定定位之后应该变化的值
+    var sliderTop = sliderbar.offsetTop - bannerTop;
+
+    //获取主体元素
+    var main = document.querySelector('.main');
+    var mainTop = main.offsetTop;
+    var goBack = document.querySelector('.goBack');
+
+    //给整个页面添加滚动事件：
+    document.addEventListener('scroll',function () {
+        //console.log(11);
+        console.log(window.pageYOffset);//页面被卷去的头部
+
+        //当页面被卷去的头部>=172时  侧边栏改为固定定位
+        if(window.pageYOffset >= bannerTop){
+            sliderbar.style.position = 'fixed';
+            sliderbar.style.top = sliderTop + 'px';
+        }else{
+            sliderbar.style.position = 'absolute';
+            sliderbar.style.top = '300px';
+        }
+        //放页面滚动到main部分  显示返回顶部
+        if(window.pageYOffset >= mainTop){
+           goBack.style.display = 'block';
+        }else{
+            goBack.style.display = 'none';
+        }
+    })
+
+</script>
+</body>
+</html>

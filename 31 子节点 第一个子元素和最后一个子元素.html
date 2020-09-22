@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子节点第一个子元素和最后一个子元素</title>
+</head>
+<body>
+<ol>
+    <li>我是li1</li>
+    <li>我是li2</li>
+    <li>我是li3</li>
+    <li>我是li4</li>
+</ol>
+
+<script>
+    var ol = document.querySelector('ol');
+    //firstChild 获取的是第一个子节点（不论类型）
+    console.log(ol.firstChild);
+    console.log(ol.lastChild);
+
+    //firstElementChild  获取的是第一个元素子节点  但有兼容性问题
+    console.log(ol.firstElementChild);
+    console.log(ol.lastElementChild);
+
+
+    //实际开发：
+    console.log(ol.children);//children得到的元素子节点构成的伪数组
+    console.log(ol.children[0]);
+    //最后一个元素子节点：
+    console.log(ol.children[ol.children.length - 1]);
+</script>
+</body>
+</html>

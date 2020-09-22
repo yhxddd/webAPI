@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成表格</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid #333;
+        }
+
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+        tbody tr a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    </tbody>
+</table>
+
+<script>
+    //动态生成tr数据
+    // 准备数据：
+    var dates = [{
+        name: '魏璎珞',
+        subject: 'JavaScript',
+        score: 100
+    }, {
+        name: '弘历',
+        subject: 'JavaScript',
+        score: 98
+    }, {
+        name: '傅恒',
+        subject: 'JavaScript',
+        score: 99
+    }, {
+        name: '明玉',
+        subject: 'JavaScript',
+        score: 88
+    }, {
+        name: '大猪蹄子',
+        subject: 'JavaScript',
+        score: 0
+    }];
+
+    //数组中的数据都存在tbody里面的 行tr中
+    //先生成tr 再生成td
+    var tbody = document.querySelector('tbody');
+
+    for(var i=0;i<dates.length;i++){
+        // 1 循环创建 行 :
+        var tr = document.createElement('tr');
+        tbody.appendChild(tr);
+
+        //2  tr中创建td：单元格数量取决于每个对象属性的个数
+            //for循环遍历对象创建td
+        //for(var k in obj)
+        // obj[k]得到的是属性值  k得到的是属性名
+
+        // dates[i]为要遍历的对象
+        // dates[i][k]得到的是属性值  k得到的是属性名
+        for(var k in dates[i]){
+            //创建单元格
+            var td = document.createElement('td');
+            //吧对象里的属性值 赋值给td
+            console.log(dates[i][k]);
+            td.innerHTML = dates[i][k];
+            tr.appendChild(td);
+        }
+        //3 创建 删除单元格
+        var td = document.createElement('td');
+        td.innerHTML = '<a href="javascript:;">删除</a>';
+        tr.appendChild(td);
+    }
+
+    //4 删除操作  获取全部a 循环创建点击事件 执行删除操作
+    var as = document.querySelectorAll('a');
+    for(var i = 0;i<as.length;i++){
+        as[i].onclick = function(){
+            //点击a删除 a所在的行tr node.removeChild(child)
+            // a的parentNode是td  td的父节点才是tr
+            // a.parentNode.parentNode找到的才是tr
+            tbody.removeChild(this.parentNode.parentNode);
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

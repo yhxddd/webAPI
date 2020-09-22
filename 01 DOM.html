@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对象</title>
+</head>
+<body>
+<img id='mm' src="../images/1.jpg" width="100px" height="100px" alt=""/>
+<h1 id="hh">你说zz！</h1>
+<script>
+    //DOM功能:控制html文档的内容
+    //Document Object Model 文档对象模型
+    //获取页面的标签（元素）对象---->Element
+
+
+    //DOM 六个对象：
+    //Document：文档对象  Element：元素对象
+    //Attribute：属性对象  Text：文本对象
+    //Comment ：注释对象    Node：节点对象 其他五个得父对象
+
+
+    //一般将html 转为dom树
+
+    //通过id获取元素对象
+    var mm=document.getElementById("mm");
+
+    //alert(mm);
+    //获取对象成功
+    //操作Element对象：修改属性值、修改标签体内容
+    console.log("我要换图片了！");
+    mm.src="../images/2.jpg"; //修改图片路径
+
+
+    var hh=document.getElementById("hh");
+    console.log("我要换内容了");
+    hh.innerHTML="你是谁啊!";
+
+
+</script>
+</body>
+</html>

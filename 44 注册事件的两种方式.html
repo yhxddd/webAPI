@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册事件的两种方式</title>
+</head>
+<body>
+<button>传统注册事件</button>
+<button>方法监听注册时间</button>
+<button>IE9以前 attachEvent</button>
+<script>
+
+    //传统注册方式： 以on开头
+    var btns = document.querySelectorAll('button');
+    btns[0].onclick = function(){
+        alert('传统方式');
+    };
+    btns[0].onclick = function(){
+        alert('hhhh');
+    };
+    //传统注册方式有  唯一性  最后注册的处理函数会覆盖前面注册的处理函数
+
+
+    //方法监听注册方式： addEventListener() 可以添加多个注册事件
+    // eventTarget.addEventListener(type,listener[, useCapture])
+    //   将指定监听器注册到eventTarget（目标对象）上
+    //  type:事件类型字符串(加引号) ： click、mouseover 这里不带on
+    //  listener:事件处理函数 事件发生时，调用该监听函数
+    //  userCapture：可选参数 是一个布尔值默认false
+    btns[1].addEventListener('click',function(){
+        alert('方法监听');
+    });
+    btns[1].addEventListener('click',function(){
+        alert('111');
+    });
+
+    //ie9以前的 attachEvent 谷歌不管用
+    /*
+    btns[2].attachEvent('onclick',function(){
+        alert('ie9以前');
+    });
+    */
+
+
+    //兼容性函数：
+    function addEventListener(element,eventName,fn){
+        //判断当前浏览器是否支持addEventListener
+        if(element.addEventListener){
+            element.addEventListener(eventName,fn);//第三个参数默认为false
+        }else if(element.attachEvent){
+            element.attachEvent('on' + eventName,fn);
+        }else{
+            //相当于element.onclick=fn
+            element['on'+eventName] = fn;
+        }
+    }
+</script>
+</body>
+</html>

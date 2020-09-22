@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象阻止默认行为</title>
+</head>
+<body>
+<div>123</div>
+<a href="http://www.baidu.com">百度</a>
+<form action="http://www.baidu.com">
+    <input type="submit" value="提交" name="sub">
+</form>
+<script>
+    var div = document.querySelector('div');
+    // e.type 返回事件类型
+    div.addEventListener('click',fn);
+    div.addEventListener('mouseover',fn);
+    div.addEventListener('mouseout',fn);
+    function fn(e){
+        console.log(e.type);
+    }
+
+    //阻止默认行为 e.preventDefault()方法
+            // 让链接不跳转 让提交按钮不提交
+    var a = document.querySelector('a');
+    a.addEventListener('click',function (e) {
+        e.preventDefault();//dom标准写法
+    });
+
+    //传统注册：
+    a.onclick = function (e) {
+        //普通浏览器用  e.preventDefault() 阻止默认行为
+        e.preventDefault();
+        //低版本ie678 returnValue属性：
+        e.returnValue;
+
+        //return false也能阻止默认行为 return后面代码不执行了 而且只能用于传统注册方式
+        //return false
+    }
+</script>
+
+</body>
+</html>

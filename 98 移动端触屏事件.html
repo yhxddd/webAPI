@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端触屏事件</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #0099cc;
+        }
+    </style>
+</head>
+<body>
+
+<div></div>
+
+<script>
+    var div = document.querySelector('div');
+
+    // 手指触摸DOM元素
+    div.addEventListener('touchstart',function () {
+        console.log('momo');
+    });
+    //手指再DOM上移动
+    div.addEventListener('touchmove',function () {
+        console.log('我还摸');
+    });
+    //手指离开DOM元素
+    div.addEventListener('touchend',function () {
+        console.log('摸完就走');
+    })
+</script>
+</body>
+</html>

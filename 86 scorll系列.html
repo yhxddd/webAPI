@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll系列</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #1ba1e6;
+            border: 2px solid red;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+
+<script>
+
+    // scroll系列相关属性可以动态得到该元素的大小，滚动距离等
+    var div = document.querySelector('div');
+    console.log(div.scrollHeight);
+    //scrollHeight  返回自身(内容)实际高度 不包含边框，包含padding 不带单位
+
+    console.log(div.clientHeight);// 只返回盒子的高度
+
+
+    //scrollTop: 返回被卷去的头部： 即被卷去的文字长度到上边框的下沿的距离
+
+    //scroll滚动事件： 滚动条发生变化触发
+    div.addEventListener('scroll',function () {
+        console.log(div.scrollTop);
+    })
+
+    // 被卷去的头部 通常有好几种写法:
+    //  声明了DTD: document.documentElement.scrollTop
+    //  未声明DTD: document.body.scrollTop
+    //  新方法 window.pageYOffset 和 window.pageXOffset IE9支持
+</script>
+</body>
+</html>

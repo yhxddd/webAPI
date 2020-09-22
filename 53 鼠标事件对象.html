@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件对象</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    document.addEventListener('click',function (e) {
+        console.log(e); //返回事件对象
+        //e.clientX  Y: 得到鼠标在可视区的坐标
+        // 始终是距离边框的距离
+        console.log(e.clientX);
+        console.log(e.clientY);
+
+        console.log('----------------');
+
+        //e.pageX  Y: 得到鼠标在页面文档的坐标
+        // 始终是距离文档顶部的距离
+        console.log(e.pageX);
+        console.log(e.pageY);
+        console.log('----------------');
+
+        //e.screenX Y :鼠标在电脑屏幕的坐标
+        console.log(e.screenX);
+        console.log(e.screenY);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>本地存储之sessionStorage</title>
+</head>
+<body>
+<input type="text">
+<button class="set">存储数据</button>
+<button class="get">获取数据</button>
+<button class="remove">删除数据</button>
+<button class="del">清空所有数据</button>
+
+<script>
+    //获取其他页面的数据
+    console.log(localStorage.getItem('username'));
+
+
+    //数据存储在浏览器中 刷新也不会丢失
+    //只能存储字符串
+
+    //window.sessionStorage生命周期为关闭浏览器窗口，
+        // 在同一个窗口下 数据可以共享。以键值对的形式存储使用
+
+    var ipt = document.querySelector('input');
+
+    //存储
+    var set = document.querySelector('.set');
+    set.addEventListener('click',function () {
+        //点击之后 将表单中的值存储起来
+        var val = ipt.value;
+        sessionStorage.setItem('uname',val);
+    });
+
+    //获取
+    var get = document.querySelector('.get');
+    get.addEventListener('click',function () {
+        //点击之后 将表单中的值获取出来
+        console.log(sessionStorage.getItem('uname'));
+    });
+
+    //删除
+    var remove = document.querySelector('.remove');
+    remove.addEventListener('click',function () {
+        //点击之后 将存储的表单的值删除
+        sessionStorage.removeItem('uname');
+    });
+
+    //清空数据
+    var del = document.querySelector('.del');
+    del.addEventListener('click',function () {
+        //点击之后 清空所有数据
+        sessionStorage.clear();
+    });
+</script>
+</body>
+</html>

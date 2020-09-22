@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getElementById</title>
+</head>
+<body>
+<div id="time">2019-9-9</div>
+
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+<div id="div3">div3</div>
+
+<script>
+    // 1. 因为我们文档页面从上往下加载，所以先得有标签 所以我们script写到标签的下面
+    // 2. get 获得 element 元素 by 通过 驼峰命名法
+    // 3. 参数 id是大小写敏感的字符串
+    // 4. 返回的是一个元素对象
+    var timer = document.getElementById('time');
+    console.log(timer);
+    console.log(typeof timer);
+    // 5. console.dir 打印我们返回的元素对象 更好的查看里面的属性和方法
+    console.dir(timer);
+
+
+
+    // 创建/获取 html中 dom模型可以使用window对象获取
+    // window.document   /   document
+
+    //方法：
+    //获取Element对象：
+    //getElementById():根据id属性值获取元素对象，id属性值一般唯一
+    //getElementsByTagName():根据元素名称（标签名）获取元素对象们  返回值是数组
+    //getElementsByClassName():根据Class的属性值获取对象们，返回值是数组
+    //getElementsByName():根据标签name获取元素
+    // 也可以通过选择器来获取
+
+    var divs=document.getElementById("div1");//标签名
+    console.log(divs);
+
+    //创建其他DOM对象
+    //createAttribute(name) 属性
+    //createComment() 注释
+    //createElement() 元素
+    //createTextNode() 文本节点
+    var table=document.createElement("table");
+    console.log(table);
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三种动态创建元素的区别</title>
+</head>
+<body>
+<button>点击</button>
+<p>abc</p>
+<div class="inner"></div>
+<div class="create"></div>
+
+<script>
+    //innerHTML采用数组拼接形式时效率最高 但解构稍微复杂
+    //creteElement 效率稍微低一点 但解构更清晰
+
+    var btn = document.querySelector('button');
+
+    // 1 document.write();  直接将内容写入页面的内容流  但是文档流执行完毕， 它会导致页面的全部重绘
+    /*
+    btn.onclick = function(){
+        //页面重绘即点击按钮后 重新绘制一个只有div的页面
+        document.write('<div>123</div>');
+    };
+*/
+    //2 element.innerHTML; 创建多个时 要使用拼接字符串的形式
+        //耗时久
+    var inner = document.querySelector('.inner');
+    /*
+        for(var i = 0; i<=100;i++){
+        inner.innerHTML += '<a href="#">百度</a>';
+    }
+    */
+    //也可以通过数组的形式拼接
+    var arr = [];
+    for(var i=0;i<=100;i++){
+        arr.push('<a href="#">百度</a>');
+    }
+    inner.innerHTML = arr.join('');
+
+
+    // 3 document.createElement();
+    var create = document.querySelector('.create') ;
+    for(var i = 0; i<=100;i++){
+        var a = document.createElement('a');
+        create.appendChild(a);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>触摸事件对象</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #0099cc;
+        }
+    </style>
+</head>
+<body>
+
+<div></div>
+<script>
+    var div = document.querySelector('div');
+
+    // 手指触摸DOM元素
+    div.addEventListener('touchstart',function (e) {
+        //console.log('momo');
+        console.log(e);
+        //touches: 正在触摸屏幕的所有手指的列表
+        //targetTouches：正在触摸当前DOM元素上的手指的一个列表
+
+        //如果侦听的是一个DOM元素  两个的结果是相同的
+
+        console.log(e.targetTouches[0]);//第一个手指的具体信息
+        //changedTouches：手指状态发生了改变的列表 从无到有 从有到无 变化
+
+    });
+    //手指再DOM上移动
+    div.addEventListener('touchmove',function () {
+        console.log('我还摸');
+    });
+    //手指离开DOM元素
+    div.addEventListener('touchend',function (e) {
+        console.log('摸完就走');
+        console.log(e);
+        //手指离开屏幕的时候  没有touches 和 targetTouches
+    })
+</script>
+</body>
+</html>

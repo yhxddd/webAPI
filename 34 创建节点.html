@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建节点</title>
+</head>
+<body>
+<ul>
+    <li>123</li>
+</ul>
+
+<script>
+    //创建元素节点
+    // document.createElement('tagName')这些创建的元素本来不存在
+    var li = document.createElement('li');
+
+
+    //添加节点 node.appendChild(child)添加孩子节点  node为父级 child为子级
+    //  后面追加元素  将元素添加到末尾
+    var ul = document.querySelector('ul');
+    ul.appendChild(li);
+
+    //node.insertBefore(child,指定元素) 将child添加到指定元素的前面
+    var lili = document.createElement('li');
+    ul.insertBefore(lili,ul.children[0]);
+</script>
+</body>
+</html>

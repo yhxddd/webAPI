@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东按s文本框自动获得焦点</title>
+</head>
+<body>
+
+<input type="text">
+<script>
+    var search = document.querySelector('input');
+    document.addEventListener('keyup',function(e){
+        //console.log(e.keyCode);
+        if(e.keyCode === 83) {
+            //按下s 获得焦点
+            search.focus();
+        }
+    })
+</script>
+</body>
+</html>

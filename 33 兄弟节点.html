@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兄弟节点</title>
+</head>
+<body>
+
+<div>我是div</div>
+<span>我是span</span>
+
+<script>
+    var div = document.querySelector('div');
+    //nextSibling :得到下一个兄弟节点  包含文本 元素节点等
+    console.log(div.nextSibling);
+    //previousSibling ：得到上一个兄弟节点 包含文本 元素节点等
+    console.log(div.previousSibling);
+
+    //有兼容性问题
+    //nextElementSibling:得到下一个兄弟元素节点
+    console.log(div.nextElementSibling);
+
+    //previousElementSibling 得到上一个兄弟元素节点 没有时则返回null
+    console.log(div.previousElementSibling);
+
+    //解决兼容需封装一个函数
+/*
+    function getNextElementSibling(element){
+        var el = element;
+        while(el === el.nextSibling){
+            if(el.nodeType === 1){
+                return el;
+            }
+        }
+        return null;
+    }
+*/
+
+</script>
+</body>
+</html>

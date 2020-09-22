@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>给不同动画元素记录不同定时器</title>
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #1ba1e6;
+        }
+        span{
+            position: absolute;
+            left: 0;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: #40b83f;
+        }
+    </style>
+</head>
+<body>
+<button>点击按钮span才走</button>
+<div></div>
+<span>hhh</span>
+<script>
+    //obj是对象  相当于给对象添加一个属性  不同元素的定时器不会起冲突
+
+    function animate(obj,target){
+        //不断点击按钮 元素的速度越来越快，因为开启了太多的定时器
+        //解决方法:只执行一个定时器
+        clearInterval(obj.timer);//清除原来的定时器
+        obj.timer = setInterval(function(){
+            if(obj.offsetLeft >= target){
+                //停止动画
+                clearInterval(obj.timer);
+            }
+            obj.style.left = obj.offsetLeft + 1 + 'px';
+        },30);
+    }
+
+    var div = document.querySelector('div');
+    animate(div,300);
+
+    //按钮点击次数越多 移动速度越快
+    var btn = document.querySelector('button');
+    var span = document.querySelector('span');
+    btn.addEventListener('click',function () {
+        animate(span,400);
+    });
+
+</script>
+</body>
+</html>

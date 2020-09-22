@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>执行事件</title>
+</head>
+<body>
+
+<div>123</div>
+<button id="btn">唐伯虎</button>
+<script>
+    //事件：某些组件执行了某些操作后，触发某些代码的执行
+    //  事件:某些操作 如 点击、双击。。
+    //  事件源:组件   如按钮文本框
+    //  监听器（事件处理程序）：代码
+
+
+    // 执行事件步骤
+    // 点击div 控制台输出 我被选中了
+    // 1. 获取事件源
+
+    var div = document.querySelector('div');
+    // 2.绑定事件 注册事件
+    // div.onclick
+    // 3.添加事件处理程序
+    div.onclick = function() {
+        console.log('我被选中了');
+    };
+
+
+    // 点击一个按钮，弹出对话框
+    // 1. 事件是有三部分组成  事件源  事件类型  事件处理程序   我们也称为事件三要素
+    //(1) 事件源 事件被触发的对象   谁  按钮
+    var btn = document.getElementById('btn');
+    //(2) 事件类型  如何触发 什么事件 比如鼠标点击(onclick) 还是鼠标经过 还是键盘按下
+    //(3) 事件处理程序  通过一个函数赋值的方式 完成
+    btn.onclick = function() {
+        alert('点秋香');
+    }
+</script>
+</body>
+</html>

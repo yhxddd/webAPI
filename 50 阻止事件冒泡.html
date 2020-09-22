@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止事件冒泡</title>
+    <style>
+        .father {
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: pink;
+            text-align: center;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+            background-color: purple;
+            line-height: 200px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="son">son盒子</div>
+</div>
+<script>
+
+    //阻止冒泡： dom标准： stopPropagation()
+
+    var son = document.querySelector('.son');
+    // 第三个参数如果为false捕获阶段 son->father->body->html->document
+    son.addEventListener('click',function(e){
+        alert('son');
+        e.stopPropagation(); //只弹出son 其他不弹 有兼容性问题
+        e.cancelBubble = true; //低版本ie678使用该属性
+    },false);
+
+    var father = document.querySelector('.father');
+    father.addEventListener('click',function(){
+        alert('father');
+    },false); //先弹son
+
+    document.addEventListener('click',function () {
+        alert('document');
+    },false)
+</script>
+</body>
+</html>

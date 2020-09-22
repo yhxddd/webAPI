@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>H5自定义属性</title>
+</head>
+<body>
+<div data-list-name="budy">11111</div>
+<script>
+
+    //  不好区分某个属性是否是自定义属性
+    //  H5规定 自定义属性以 data- 开头
+    var div = document.querySelector('div');
+    div.setAttribute('data-index','1');
+    //兼容性获取：
+    console.log(div.getAttribute('data-index'));
+
+    //H5新增：element.dataset.index或者element.dataset['index']
+    console.log(div.dataset.index);
+    console.log(div.dataset['index']);
+
+    //若自定义属性名中有多个-  则需使用驼峰命名：
+    console.log(div.dataset.listName);
+    console.log(div.dataset['listName']);
+
+    //dataset是一个集合里面存放了所有以data-开头的自定义属性
+    console.log(div.dataset)
+</script>
+</body>
+</html>

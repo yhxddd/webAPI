@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点概述</title>
+</head>
+<body>
+
+<div>我是div</div>
+<span>我是span</span>
+<ul>
+    <li>我是li</li>
+    <li>我是li</li>
+    <li>我是li</li>
+</ul>
+<div class="box">
+    <span class="erweima">x</span>
+</div>
+<script>
+    //网页中的所有内容都是节点（属性、标签、文本、注释等）
+    // 一般节点至少拥有 节点类型、节点名称、节点值 这三个基本属性
+
+    var box = document.querySelector('.box');
+    console.dir(box);
+    //其中包含了 nodeName nodeType nodeValue
+    // nodeType： 元素节点 1（标签）      属性节点 2    文本节点 3（包括文字  空格 换行）
+
+
+</script>
+</body>
+</html>

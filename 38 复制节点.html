@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制节点</title>
+</head>
+<body>
+
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script>
+    //node.cloneNode();将node 复制一份
+    //  如果括号参数为 空 或者为 false 即是浅拷贝 指复制标签 不复制其中内容
+    //    括号中为true 则标签内容均复制
+    var ul = document.querySelector('ul');
+
+    var ll = ul.children[0].cloneNode();
+
+    var lll = ul.children[0].cloneNode(true);
+    ul.appendChild(ll);
+    ul.appendChild(lll);
+</script>
+</body>
+</html>

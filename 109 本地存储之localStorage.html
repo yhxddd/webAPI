@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>本地存储之localStorage</title>
+</head>
+<body>
+<input type="text">
+<button class="set">存储数据</button>
+<button class="get">获取数据</button>
+<button class="remove">删除数据</button>
+<button class="del">清空所有数据</button>
+
+<script>
+    //生命周期永久生效 除非手动删除
+    //可以多窗口共享（同一浏览器可共享）
+    //键值对形式存储
+
+    var ipt = document.querySelector('input');
+
+    //存储
+    var set = document.querySelector('.set');
+    set.addEventListener('click',function () {
+        var val = ipt.value;
+        localStorage.setItem('username',val);
+    });
+    //获取
+    var get = document.querySelector('.get');
+    get.addEventListener('click',function () {
+        //点击之后 将表单中的值获取出来
+        console.log(localStorage.getItem('username'));
+    });
+
+    //删除
+    var remove = document.querySelector('.remove');
+    remove.addEventListener('click',function () {
+        //点击之后 将存储的表单的值删除
+        localStorage.removeItem('username');
+    });
+
+    //清空数据
+    var del = document.querySelector('.del');
+    del.addEventListener('click',function () {
+        //点击之后 清空所有数据
+        localStorage.clear();
+    });
+
+</script>
+</body>
+</html>

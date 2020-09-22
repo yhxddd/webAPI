@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除节点</title>
+</head>
+<body>
+<button>删除</button>
+<ul>
+    <li>胸大</li>
+    <li>熊二</li>
+    <li>光头强</li>
+</ul>
+<script>
+    //node.removeChild(child) 删除node中的child节点
+
+    var ul = document.querySelector('ul');
+    var btn = document.querySelector('button');
+    //ul.removeChild(ul.children[0]);
+    //点击按钮依次删除孩子
+
+    btn.onclick = function(){
+        if(ul.children.length === 0){
+            this.disabled = true;
+        }else{
+            //删一个之后下一个会变为第一个孩子
+            ul.removeChild(ul.children[0]);
+        }
+    }
+</script>
+</body>
+</html>

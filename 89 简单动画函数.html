@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单动画函数</title>
+    <style>
+        div{
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: #1ba1e6;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+<script>
+    //动画实现原理： 通过定时器不断移动盒子的位置
+    //  该元素需要加定位  需要使用element.style.left改变位置
+
+    //获取盒子位置：
+    var div = document.querySelector('div');
+    //offset只能获取位置  改变需要使用style
+    var timer = setInterval(function(){
+        if(div.offsetLeft >= 400){
+            //停止动画
+            clearInterval(timer);
+        }
+        div.style.left = div.offsetLeft + 1 + 'px';
+    },30);
+
+</script>
+</body>
+</html>
